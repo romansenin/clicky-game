@@ -2,13 +2,13 @@ import React, { Component } from "react";
 // component css file
 
 export default class Header extends Component {
-  constructor() {
+  constructor(props) {
     super(props);
 
     this.state = {
-      message =  this.props.message,
-      score = this.props.score,
-      topScore = this.props.topScore
+      message :  this.props.message,
+      score : this.props.score,
+      topScore : this.props.topScore
     }
   }
   render() {
