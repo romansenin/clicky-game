@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  background-color: #e74c3c;
+  padding: 15px;
+}
+
+.container p {
+  flex: 1;
+  text-align: center;
+  color: #fff;
+}
