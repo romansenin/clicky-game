@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Card from "../Card";
 
 export default class Row extends Component {
   constructor(props) {
@@ -9,10 +10,10 @@ export default class Row extends Component {
   render() {
     return (
       <div className="row">
-        <img src="#" alt="" />
-        <img src="#" alt="" />
-        <img src="#" alt="" />
-        <img src="#" alt="" />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
     );
   }
