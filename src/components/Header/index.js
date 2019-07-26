@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import "./header.css";
 
 export default class Header extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="header-container">
         <p>Clicky Game</p>
         <p>{this.state.message}</p>
         <p>Score: {this.state.score} | Top Score: {this.state.topScore}</p>
