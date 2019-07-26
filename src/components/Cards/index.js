@@ -10,12 +10,12 @@ export default class Cards extends Component {
 
   render() {
     return (
-      <>
+      <div className="cards-container">
         <Row />
         <Row />
         <Row />
         <Row />
-      </>
+      </div>
     );
   }
 }
