@@ -11,10 +11,10 @@ export default class Cards extends Component {
   render() {
     return (
       <div className="cards-container">
-        <Row />
-        <Row />
-        <Row />
-        <Row />
+        <Row images={this.props.images.slice(0, 4)}/>
+        <Row images={this.props.images.slice(4, 4)}/>
+        <Row images={this.props.images.slice(8, 4)}/>
+        <Row images={this.props.images.slice(12, 4)}/>
       </div>
     );
   }
