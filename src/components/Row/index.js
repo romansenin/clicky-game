@@ -11,10 +11,9 @@ export default class Row extends Component {
   render() {
     return (
       <div className="row">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {this.props.images.map((value, index) => {
+        return <Card key={index} image={value}></Card>
+      })}
       </div>
     );
   }
