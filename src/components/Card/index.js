@@ -10,7 +10,7 @@ export default class Card extends Component {
   render() {
     return (
       <div className="card">
-        <img src={this.props.image.image} alt="" />
+        <img draggable="false" src={this.props.image.image} alt="" />
       </div>
     );
   }
