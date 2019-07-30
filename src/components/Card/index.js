@@ -10,7 +10,7 @@ export default class Card extends Component {
   render() {
     return (
       <div className="card">
-        <img src="http://placehold.jp/150x150.png" alt="" />
+        <img src={this.props.image.image} alt="" />
       </div>
     );
   }
