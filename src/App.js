@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Cards from "./components/Cards";
-
-import
+import icons from "./icons.json";
 
 export default class App extends Component {
   constructor() {
@@ -23,7 +22,7 @@ export default class App extends Component {
           topScore={this.state.topScore}
         />
         <Intro />
-        <Cards />
+        <Cards images={icons}/>
       </>
     );
   }
