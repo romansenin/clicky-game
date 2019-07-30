@@ -1,14 +1,19 @@
 .card {
   height: 150px;
   margin: 2px;
-  /* border: 2px solid blue; */
   background-color: #e4e4e4;
   text-align: center;
+  cursor: pointer;
 }
 
 .card img {
   height: 100%;
   padding: 15px;
+  transition: transform 0.2s;
+}
+
+.card img:hover {
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 676px) {
