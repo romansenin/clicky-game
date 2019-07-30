@@ -12,9 +12,9 @@ export default class Cards extends Component {
     return (
       <div className="cards-container">
         <Row images={this.props.images.slice(0, 4)}/>
-        <Row images={this.props.images.slice(4, 4)}/>
-        <Row images={this.props.images.slice(8, 4)}/>
-        <Row images={this.props.images.slice(12, 4)}/>
+        <Row images={this.props.images.slice(4, 8)}/>
+        <Row images={this.props.images.slice(8, 12)}/>
+        <Row images={this.props.images.slice(12, 16)}/>
       </div>
     );
   }
