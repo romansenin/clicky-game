@@ -22,7 +22,7 @@ export default class App extends Component {
           topScore={this.state.topScore}
         />
         <Intro />
-        <Cards images={icons}/>
+        <Cards cards={icons}/>
       </>
     );
   }
