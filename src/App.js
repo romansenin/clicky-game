@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Cards from "./components/Cards";
+import Footer from "./components/Footer";
 import icons from "./icons.json";
 
 export default class App extends Component {
@@ -16,16 +17,14 @@ export default class App extends Component {
   }
 
   handleHeaderChange(headerMessage) {
-    this.setState({headerMessage});
+    this.setState({ headerMessage });
     if (headerMessage === "You guessed incorrectly!") {
       this.setState({ score: 0 });
     } else {
-      this.setState((state) => ({
+      this.setState(state => ({
         score: state.score + 1,
         topScore:
-          (state.score + 1) > state.topScore
-            ? state.score + 1
-            : state.topScore
+          state.score + 1 > state.topScore ? state.score + 1 : state.topScore
       }));
     }
   }
@@ -40,6 +39,7 @@ export default class App extends Component {
         />
         <Intro />
         <Cards cards={icons} handleHeaderChange={this.handleHeaderChange} />
+        <Footer />
       </>
     );
   }
