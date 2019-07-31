@@ -76,7 +76,7 @@ export default class Cards extends Component {
 
   render() {
     return (
-      <div className="cards-container">
+      <div className="cards-container" id="cards">
         <Row
           offset={0}
           images={this.state.cards.slice(0, 4)}
