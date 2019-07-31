@@ -18,7 +18,7 @@ export default class Row extends Component {
               id={index + this.props.offset}
               image={value}
               handleHeaderChange={this.props.handleHeaderChange}
-              shuffleCards={this.props.shuffleCards}
+              updateCards={this.props.updateCards}
               setClicked={this.props.setClicked}
               resetCards={this.props.resetCards}
             />

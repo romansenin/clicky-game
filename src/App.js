@@ -28,7 +28,6 @@ export default class App extends Component {
             : state.topScore
       }));
     }
-    console.log(this.state);
   }
 
   render() {

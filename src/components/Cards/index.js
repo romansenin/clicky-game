@@ -5,31 +5,64 @@ import "./cards.css";
 export default class Cards extends Component {
   constructor(props) {
     super(props);
-    this.shuffleCards = this.shuffleCards.bind(this);
+    this.updateCards = this.updateCards.bind(this);
     this.resetCards = this.resetCards.bind(this);
     this.state = {
-      cards: this.props.cards
+      cards: this.props.cards,
+      numClicked: 0
     };
   }
 
   componentDidMount() {
-    this.shuffleCards();
+    this.setState({ cards: this.shuffleCards(this.state.cards) });
   }
 
-  shuffleCards(clickPos) {
-    const newCards = this.state.cards.slice();
-    if (clickPos !== undefined) {
-      newCards[clickPos].clicked = true;
-    }
+  shuffleCards(cards) {
     for (let i = 0; i < 16; i++) {
-      const randPos = newCards[i].clicked
+      const randPos = cards[i].clicked
         ? Math.floor(Math.random() * 16)
-        : Math.floor(Math.random() * newCards.length); // this logic makes sure a clicked card stays visible
-      const temp = newCards[i];
-      newCards[i] = newCards[randPos];
-      newCards[randPos] = temp;
+        : Math.floor(Math.random() * cards.length); // ensures clicked cards stay visible
+
+      // swap
+      const temp = cards[i];
+      cards[i] = cards[randPos];
+      cards[randPos] = temp;
     }
-    this.setState({ cards: newCards });
+    return cards;
+  }
+
+  updateCards(clickPos) {
+    const newCards = this.state.cards.slice();
+    newCards[clickPos].clicked = true;
+    const newCount = this.state.numClicked + 1;
+
+    this.setState({ numClicked: newCount }, () => {
+      if (this.state.numClicked === 21) {
+        // tell user they won
+        return;
+      }
+
+      this.shuffleCards(newCards);
+
+      if (this.state.numClicked >= 16) {
+        // fetch new unclicked card
+        let newPos;
+        for (let i = 16; i < newCards.length; i++) {
+          if (!newCards[i].clicked) {
+            newPos = i;
+            break;
+          }
+        }
+        const randPos = Math.floor(Math.random() * 16);
+
+        // swap
+        const temp = newCards[randPos];
+        newCards[randPos] = newCards[newPos];
+        newCards[newPos] = temp;
+      }
+
+      this.setState({ cards: newCards });
+    });
   }
 
   resetCards() {
@@ -37,9 +70,8 @@ export default class Cards extends Component {
     for (let i = 0; i < newCards.length; i++) {
       newCards[i].clicked = false;
     }
-    this.setState({ cards: newCards }, () => {
-      this.shuffleCards();
-    });
+    this.shuffleCards(newCards);
+    this.setState({ cards: newCards, numClicked: 0 });
   }
 
   render() {
@@ -49,7 +81,7 @@ export default class Cards extends Component {
           offset={0}
           images={this.state.cards.slice(0, 4)}
           handleHeaderChange={this.props.handleHeaderChange}
-          shuffleCards={this.shuffleCards}
+          updateCards={this.updateCards}
           setClicked={this.setClicked}
           resetCards={this.resetCards}
         />
@@ -57,7 +89,7 @@ export default class Cards extends Component {
           offset={4}
           images={this.state.cards.slice(4, 8)}
           handleHeaderChange={this.props.handleHeaderChange}
-          shuffleCards={this.shuffleCards}
+          updateCards={this.updateCards}
           setClicked={this.setClicked}
           resetCards={this.resetCards}
         />
@@ -65,7 +97,7 @@ export default class Cards extends Component {
           offset={8}
           images={this.state.cards.slice(8, 12)}
           handleHeaderChange={this.props.handleHeaderChange}
-          shuffleCards={this.shuffleCards}
+          updateCards={this.updateCards}
           setClicked={this.setClicked}
           resetCards={this.resetCards}
         />
@@ -73,7 +105,7 @@ export default class Cards extends Component {
           offset={12}
           images={this.state.cards.slice(12, 16)}
           handleHeaderChange={this.props.handleHeaderChange}
-          shuffleCards={this.shuffleCards}
+          updateCards={this.updateCards}
           setClicked={this.setClicked}
           resetCards={this.resetCards}
         />
