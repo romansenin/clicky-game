@@ -1,15 +1,15 @@
-.header-container {
+.footer-container {
   display: flex;
   background-color: #e74c3c;
   height: 68px;
   align-items: center;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
 }
 
-.header-container p {
+.footer-container p {
   flex: 1;
   text-align: center;
   color: #fff;
-  font-size: 130%;
+  /* font-size: 120%; */
 }

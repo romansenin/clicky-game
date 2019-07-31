@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
   background-image: linear-gradient(#000000, #434343);
   color: #fff;
 }

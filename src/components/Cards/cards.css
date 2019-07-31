@@ -1,5 +1,5 @@
 .cards-container {
-  min-height: 100vh;
+  min-height: calc(94vh - 68px);
   display: flex;
   flex-direction: column;
   justify-content: center;
