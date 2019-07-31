@@ -12,8 +12,14 @@ export default class Row extends Component {
     return (
       <div className="row">
         {this.props.images.map((value, index) => {
-        return <Card key={index} image={value}></Card>
-      })}
+          return (
+            <Card
+              key={index}
+              image={value}
+              handleHeaderChange={this.props.handleHeaderChange}
+            />
+          );
+        })}
       </div>
     );
   }

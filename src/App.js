@@ -5,14 +5,32 @@ import Cards from "./components/Cards";
 import icons from "./icons.json";
 
 export default class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.handleHeaderChange = this.handleHeaderChange.bind(this);
     this.state = {
       headerMessage: "Click an image to begin!",
       score: 0,
       topScore: 0
     };
   }
+
+  handleHeaderChange(headerMessage) {
+    this.setState({headerMessage});
+    if (headerMessage === "You guessed incorrectly!") {
+      this.setState({ score: 0 });
+    } else {
+      this.setState((state) => ({
+        score: state.score + 1,
+        topScore:
+          (state.score + 1) > state.topScore
+            ? state.score + 1
+            : state.topScore
+      }));
+    }
+    console.log(this.state);
+  }
+
   render() {
     return (
       <>
@@ -22,7 +40,7 @@ export default class App extends Component {
           topScore={this.state.topScore}
         />
         <Intro />
-        <Cards cards={icons}/>
+        <Cards cards={icons} handleHeaderChange={this.handleHeaderChange} />
       </>
     );
   }

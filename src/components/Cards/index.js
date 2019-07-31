@@ -13,10 +13,22 @@ export default class Cards extends Component {
   render() {
     return (
       <div className="cards-container">
-        <Row images={this.state.cards.slice(0, 4)}/>
-        <Row images={this.state.cards.slice(4, 8)}/>
-        <Row images={this.state.cards.slice(8, 12)}/>
-        <Row images={this.state.cards.slice(12, 16)}/>
+        <Row
+          images={this.state.cards.slice(0, 4)}
+          handleHeaderChange={this.props.handleHeaderChange}
+        />
+        <Row
+          images={this.state.cards.slice(4, 8)}
+          handleHeaderChange={this.props.handleHeaderChange}
+        />
+        <Row
+          images={this.state.cards.slice(8, 12)}
+          handleHeaderChange={this.props.handleHeaderChange}
+        />
+        <Row
+          images={this.state.cards.slice(12, 16)}
+          handleHeaderChange={this.props.handleHeaderChange}
+        />
       </div>
     );
   }
