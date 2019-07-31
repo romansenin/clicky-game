@@ -6,6 +6,7 @@ export default class Cards extends Component {
   constructor(props) {
     super(props);
     this.shuffleCards = this.shuffleCards.bind(this);
+    this.resetCards = this.resetCards.bind(this);
     this.state = {
       cards: this.props.cards
     };
@@ -31,36 +32,50 @@ export default class Cards extends Component {
     this.setState({ cards: newCards });
   }
 
+  resetCards() {
+    const newCards = this.state.cards;
+    for (let i = 0; i < newCards.length; i++) {
+      newCards[i].clicked = false;
+    }
+    this.setState({ cards: newCards }, () => {
+      this.shuffleCards();
+    });
+  }
+
   render() {
     return (
       <div className="cards-container">
         <Row
+          offset={0}
           images={this.state.cards.slice(0, 4)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
           setClicked={this.setClicked}
-          offset={0}
+          resetCards={this.resetCards}
         />
         <Row
+          offset={4}
           images={this.state.cards.slice(4, 8)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
           setClicked={this.setClicked}
-          offset={4}
+          resetCards={this.resetCards}
         />
         <Row
+          offset={8}
           images={this.state.cards.slice(8, 12)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
           setClicked={this.setClicked}
-          offset={8}
+          resetCards={this.resetCards}
         />
         <Row
+          offset={12}
           images={this.state.cards.slice(12, 16)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
           setClicked={this.setClicked}
-          offset={12}
+          resetCards={this.resetCards}
         />
       </div>
     );

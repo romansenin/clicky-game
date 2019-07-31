@@ -20,6 +20,7 @@ export default class Row extends Component {
               handleHeaderChange={this.props.handleHeaderChange}
               shuffleCards={this.props.shuffleCards}
               setClicked={this.props.setClicked}
+              resetCards={this.props.resetCards}
             />
           );
         })}

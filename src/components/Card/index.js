@@ -11,10 +11,11 @@ export default class Card extends Component {
   handleClick() {
     if (this.props.image.clicked) {
       this.props.handleHeaderChange("You guessed incorrectly!")
+      this.props.resetCards();
     } else {
       this.props.handleHeaderChange("You guessed correctly!");
+      this.props.shuffleCards(this.props.id);
     }
-    this.props.shuffleCards(this.props.id);
   }
 
   render() {
