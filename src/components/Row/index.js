@@ -17,6 +17,7 @@ export default class Row extends Component {
               key={index}
               image={value}
               handleHeaderChange={this.props.handleHeaderChange}
+              shuffleCards={this.props.shuffleCards}
             />
           );
         })}
