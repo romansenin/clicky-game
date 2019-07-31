@@ -14,7 +14,7 @@ export default class Card extends Component {
     } else {
       this.props.handleHeaderChange("You guessed correctly!");
     }
-    this.props.shuffleCards();
+    this.props.shuffleCards(this.props.id);
   }
 
   render() {

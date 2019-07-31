@@ -14,10 +14,12 @@ export default class Row extends Component {
         {this.props.images.map((value, index) => {
           return (
             <Card
-              key={index}
+              key={index + this.props.offset}
+              id={index + this.props.offset}
               image={value}
               handleHeaderChange={this.props.handleHeaderChange}
               shuffleCards={this.props.shuffleCards}
+              setClicked={this.props.setClicked}
             />
           );
         })}

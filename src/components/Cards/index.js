@@ -15,8 +15,11 @@ export default class Cards extends Component {
     this.shuffleCards();
   }
 
-  shuffleCards() {
+  shuffleCards(clickPos) {
     const newCards = this.state.cards.slice();
+    if (clickPos !== undefined) {
+      newCards[clickPos].clicked = true;
+    }
     for (let i = 0; i < 16; i++) {
       const randPos = newCards[i].clicked
         ? Math.floor(Math.random() * 16)
@@ -35,21 +38,29 @@ export default class Cards extends Component {
           images={this.state.cards.slice(0, 4)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
+          setClicked={this.setClicked}
+          offset={0}
         />
         <Row
           images={this.state.cards.slice(4, 8)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
+          setClicked={this.setClicked}
+          offset={4}
         />
         <Row
           images={this.state.cards.slice(8, 12)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
+          setClicked={this.setClicked}
+          offset={8}
         />
         <Row
           images={this.state.cards.slice(12, 16)}
           handleHeaderChange={this.props.handleHeaderChange}
           shuffleCards={this.shuffleCards}
+          setClicked={this.setClicked}
+          offset={12}
         />
       </div>
     );
