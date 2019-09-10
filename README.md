@@ -1,5 +1,7 @@
 # clicky-game
 
+![Clicky Game Screenshot](./media/clicky-game.png)
+
 [Deployed Project](https://romansenin.github.io/clicky-game/)
 
 ## Project Description
@@ -10,6 +12,8 @@ Clicky Game is a React memory card game. The user is presented with a set of 16 
 For the first 15 card clicks, all of the cards that have already been clicked will stay inside the display square. After the user has reached 16 correct clicks, a card that hasn't been clicked from the remaining hidden set of 5 cards will replace a clicked card within the display square.
 
 React components are used to organize the app's structure.
+
+![](./media/clicky-game.gif)
 
 ## Technologies
 ---
