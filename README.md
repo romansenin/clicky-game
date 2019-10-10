@@ -14,7 +14,9 @@ When you click on a new card that you haven't previously clicked your score is i
 
 The goal of the game is to find and click on a unique card each time in an effort to obtain the maximum score of 21.
 
-![Clicky Game Gif](./media/clicky-game.gif)
+An example is shown below:
+
+<div align="center"><img alt="Clicky Game Gif" src="./media/clicky-game.gif"/></div>
 
 For the first 15 click attempts, all of the cards that have already been clicked will stay inside the display square. Once the player achieves 16 correct cards, a card that hasn't been clicked from the remaining hidden set of 5 cards will replace a clicked card within the display square.
 
